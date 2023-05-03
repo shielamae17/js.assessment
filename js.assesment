@@ -1,0 +1,44 @@
+// 1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+// We can use a variable of type number to hold the total count of NFT's.
+let totalNFTs = 0;
+
+// 2. Create an object inside your mintNFT function that will hold the metadata for your NFTs.
+function mintNFT(name, description, image) {
+// create an object to hold the metadata for the NFT
+const nft = {
+name: name,
+description: description,
+image: image
+};
+
+// increment the total number of NFT's
+totalNFTs++;
+
+// return the newly minted NFT object
+return nft;
+}
+
+// 3. Your listNFTs() function will print all of your NFTs metadata to the console
+function listNFTs(nfts) {
+for (let i = 0; i < nfts.length; i++) {
+console.log("Name: " + nfts[i].name);
+console.log("Description: " + nfts[i].description);
+console.log("Image: " + nfts[i].image);
+}
+}
+
+// 4. For good measure, getTotalSupply() should return the number of NFT's you have created
+function getTotalSupply() {
+return totalNFTs;
+}
+
+// call the functions
+const nft1 = mintNFT("NFT 1", "This is the first NFT", "image1.jpg");
+const nft2 = mintNFT("NFT 2", "This is the second NFT", "image2.jpg");
+const nft3 = mintNFT("NFT 3", "This is the third NFT", "image3.jpg");
+
+const nfts = [nft1, nft2, nft3];
+
+listNFTs(nfts);
+
+console.log("Total number of NFTs: " + getTotalSupply());
